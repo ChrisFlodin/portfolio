@@ -1,15 +1,14 @@
-import { getSelectionRange } from "@testing-library/user-event/dist/utils";
 import { useEffect, useRef, useState } from "react";
 import "./HeroCanvas.scss";
 
-const particleVelocity = { x: 0.1, y: 0 };
-const resolution = window.innerWidth;
-const nrOfSpawns = 6;
-const spawnFrequency = 60000;
+const particleVelocity = { x: 0.1, y: 0 },
+  nrOfSpawns = 6,
+  spawnFrequency = 60000,
+  lowertItemRadius = 20;
+let windowWidth;
+let upperItemRadiusRatio;
 let time = 0;
 let prevTime = 0;
-const upperItemRadiusRatio = resolution / 14;
-const lowertItemRadius = 20;
 
 //#1 Chris (not expanded)
 const colors = ["#FFB8B8", "#fcd0a9", "#bde0fe", "#a2d2ff"];
@@ -52,21 +51,21 @@ function HeroCanvas(props) {
   let animationFrameId;
 
   useEffect(() => {
+    windowWidth = document.documentElement.clientWidth;
+    upperItemRadiusRatio = windowWidth / 14;
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth;
+    canvas.width = windowWidth;
     canvas.height = window.innerHeight;
 
     const context = canvas.getContext("2d");
 
     const h2 = props.greetingNameRef.current;
-    const height = h2.clientHeight;
-    const offSetLeft = h2.offsetLeft;
     const offSetTop = h2.offsetTop;
 
     // Initial Spawn
     contextRef.current = context;
     let count = 0;
-    for (let i = -(resolution / nrOfSpawns) * 1.3; i < resolution; i += resolution / nrOfSpawns) {
+    for (let i = -(windowWidth / nrOfSpawns) * 1.3; i < windowWidth; i += windowWidth / nrOfSpawns) {
       switch (count) {
         case 1:
           spawnParticles(1, i, null, upperItemRadiusRatio * 0.5);
@@ -161,7 +160,3 @@ function HeroCanvas(props) {
 }
 
 export default HeroCanvas;
-
-const getRange = (value, lowerLimit, upperLimit) => {
-  return (upperLimit - lowerLimit) * Math.random();
-};
