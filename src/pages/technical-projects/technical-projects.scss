@@ -53,9 +53,40 @@ section {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 65px;
   }
-  .right {
+  .down-right {
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    height: 270px;
+
+    .project-holder {
+      width: 50%;
+      height: 100%;
+    }
+    .holder-right {
+      margin-left: 10px;
+    }
+    .project {
+      padding: 19px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+
+      &:last-child {
+        margin-top: 10px;
+      }
+
+      .project-title {
+        display: flex;
+        justify-content: space-between;
+
+        h3 {
+          font-weight: 600;
+        }
+        span {
+          font-weight: 700;
+        }
+      }
+
+      p {
+        font-size: 1.7rem;
+      }
+    }
   }
 }

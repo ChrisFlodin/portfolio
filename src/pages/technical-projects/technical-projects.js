@@ -82,7 +82,43 @@ function TechnicalProjects() {
             extensively, some less frequently.
           </p>
         </div>
-        <div className="down-right"></div>
+
+        <div className="down-right">
+          <div className="project-holder holder-left">
+            <div className="project">
+              <div className="project-title">
+                <h3>Hyperion</h3>
+                <span>Analytics</span>
+              </div>
+              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+            </div>
+
+            <div className="project">
+              <div className="project-title">
+                <h3>Hyperion</h3>
+                <span>Analytics</span>
+              </div>
+              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+            </div>
+          </div>
+
+          <div className="project-holder holder-right">
+            <div className="project">
+              <div className="project-title">
+                <h3>Hyperion</h3>
+                <span>Analytics</span>
+              </div>
+              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+            </div>
+            <div className="project">
+              <div className="project-title">
+                <h3>Hyperion</h3>
+                <span>Analytics</span>
+              </div>
+              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+            </div>
+          </div>
+        </div>
         <div className="sub-divider"></div>
       </div>
     </section>
