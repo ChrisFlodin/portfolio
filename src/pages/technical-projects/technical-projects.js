@@ -63,7 +63,7 @@ function TechnicalProjects() {
   ));
 
   return (
-    <section>
+    <section id="tech-projects" className="technical-projects">
       <div className="page-container">
         <div className="upper-left">
           <h2>Technologies</h2>

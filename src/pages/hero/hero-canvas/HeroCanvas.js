@@ -51,40 +51,7 @@ function HeroCanvas(props) {
   let animationFrameId;
 
   useEffect(() => {
-    windowWidth = document.documentElement.clientWidth;
-    upperItemRadiusRatio = windowWidth / 14;
-    const canvas = canvasRef.current;
-    canvas.width = windowWidth;
-    canvas.height = window.innerHeight;
-
-    const context = canvas.getContext("2d");
-
-    const h2 = props.greetingNameRef.current;
-    const offSetTop = h2.offsetTop;
-
-    // Initial Spawn
-    contextRef.current = context;
-    let count = 0;
-    for (let i = -(windowWidth / nrOfSpawns) * 1.3; i < windowWidth; i += windowWidth / nrOfSpawns) {
-      switch (count) {
-        case 1:
-          spawnParticles(1, i, null, upperItemRadiusRatio * 0.5);
-          break;
-        case 2:
-          spawnParticles(1, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
-          break;
-        case 3:
-          spawnParticles(1, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
-          break;
-        case 4:
-          spawnParticles(1, i, null, null, colors[1]);
-          break;
-        default:
-          spawnParticles(1, i);
-          break;
-      }
-      count++;
-    }
+    init();
   }, []);
 
   useEffect(() => {
@@ -150,6 +117,44 @@ function HeroCanvas(props) {
     });
 
     return activeParticles;
+  };
+
+  const init = () => {
+    setParticles([]);
+    windowWidth = document.documentElement.clientWidth;
+    upperItemRadiusRatio = windowWidth / 14;
+    const canvas = canvasRef.current;
+    canvas.width = windowWidth;
+    canvas.height = window.innerHeight;
+
+    const context = canvas.getContext("2d");
+
+    const h2 = props.greetingNameRef.current;
+    const offSetTop = h2.offsetTop;
+
+    // Initial Spawn
+    contextRef.current = context;
+    let count = 0;
+    for (let i = -(windowWidth / nrOfSpawns) * 1.3; i < windowWidth; i += windowWidth / nrOfSpawns) {
+      switch (count) {
+        case 1:
+          spawnParticles(1, i, null, upperItemRadiusRatio * 0.5);
+          break;
+        case 2:
+          spawnParticles(1, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
+          break;
+        case 3:
+          spawnParticles(1, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
+          break;
+        case 4:
+          spawnParticles(1, i, null, null, colors[1]);
+          break;
+        default:
+          spawnParticles(1, i);
+          break;
+      }
+      count++;
+    }
   };
 
   return (

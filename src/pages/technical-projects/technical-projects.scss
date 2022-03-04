@@ -1,14 +1,16 @@
-section {
+.technical-projects {
   position: relative;
   display: grid;
-  grid-template-columns: 150px repeat(12, 1fr) 150px;
-  grid-template-rows: 19vh 1fr 19vh;
+  grid-template-columns: 120px repeat(12, 1fr) 120px;
+  grid-template-rows: 14vh 1fr 5vh;
 }
 
 .page-container {
   display: grid;
-  grid-template-rows: 290px max-content max-content;
-  grid-template-columns: 33% 7% 60%;
+  grid-template-rows: 290px 7vh max-content;
+  grid-template-columns: 375px minmax(60px, 1fr) 64%;
+  border-radius: 3px;
+  padding: 40px 30px;
 
   grid-row: 2 / 3;
   grid-column: 2 / 14;
@@ -27,22 +29,24 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(4, 60px);
-
+    margin-top: -10px;
     grid-column: 3 / 4;
 
     .tech {
       display: flex;
       align-items: center;
-      padding: 10.5px 12.5px;
+      padding: 10.5px 20px;
       font-weight: 500;
+      border-radius: 3px;
 
       .tech-image {
         width: auto;
-        height: 27px;
+        height: 28px;
         margin-right: 10px;
       }
       .tech-name {
-        font-size: 2rem;
+        width: max-content;
+        font-size: 1.8rem;
       }
     }
   }
@@ -51,12 +55,14 @@ section {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     height: 1px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1.2px;
     margin-bottom: 65px;
   }
   .down-right {
     display: flex;
     height: 270px;
+    margin-left: 16px;
+    margin-top: 5px;
 
     .project-holder {
       width: 50%;
@@ -68,6 +74,7 @@ section {
     .project {
       padding: 19px;
       border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
 
       &:last-child {
         margin-top: 10px;
@@ -87,27 +94,28 @@ section {
 
       p {
         font-size: 1.7rem;
+        font-weight: 300;
       }
     }
   }
 }
 
-// Circle 1
-section::after {
+// Circle top
+.technical-projects::after {
   display: block;
   position: absolute;
-  top: 10%;
+  top: 11%;
   left: 1%;
-  width: 33vw;
-  height: 33vw;
+  width: 34vw;
+  height: 34vw;
   content: "";
   clip-path: circle();
   z-index: -1;
   background-color: #fcd0a9;
 }
 
-// Circle 2
-section::before {
+// Circle bottom
+.technical-projects::before {
   display: block;
   position: absolute;
   top: 22%;
@@ -120,3 +128,9 @@ section::before {
   overflow: hidden;
   background-color: #ffb8b8;
 }
+
+// @media screen and (min-width: 1920px) {
+//   .project p {
+//     font-weight: 400;
+//   }
+// }
