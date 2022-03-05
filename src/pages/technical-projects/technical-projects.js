@@ -1,59 +1,64 @@
 import "./technical-projects.scss";
-import angular from "../../images/angular.png";
+import LogoPaths from "../../utils/logo-directories";
+import angular from "../../images/tech-logos/angular.png";
 
 function TechnicalProjects() {
   const techList = [
     {
-      url: angular,
-      techName: "HTML",
-    },
-    {
-      url: angular,
-      techName: "CSS",
-    },
-    {
-      url: angular,
-      techName: "SCSS",
-    },
-    {
-      url: angular,
+      url: LogoPaths.js,
       techName: "JavaScript",
     },
     {
-      url: angular,
-      techName: "Canvas",
-    },
-    {
-      url: angular,
-      techName: "GSAP",
-    },
-    {
-      url: angular,
-      techName: "D3.js",
-    },
-    {
-      url: angular,
-      techName: "Firebase",
-    },
-    {
-      url: angular,
-      techName: "Angular 10",
-    },
-    {
-      url: angular,
-      techName: "Git",
-    },
-    {
-      url: angular,
-      techName: "RXJS",
-    },
-    {
-      url: angular,
+      url: LogoPaths.react,
       techName: "React",
     },
     {
-      url: angular,
+      url: LogoPaths.angular,
+      techName: "Angular 10",
+    },
+    {
+      url: LogoPaths.html,
+      techName: "HTML",
+    },
+    {
+      url: LogoPaths.css,
+      techName: "CSS",
+    },
+    {
+      url: LogoPaths.scss,
+      techName: "SCSS",
+    },
+    {
+      url: LogoPaths.js,
+      techName: "Canvas",
+    },
+    {
+      url: LogoPaths.gsap,
+      techName: "GSAP",
+    },
+    {
+      url: LogoPaths.d3,
+      techName: "D3.js",
+    },
+    {
+      url: LogoPaths.firebase,
+      techName: "Firebase",
+    },
+    {
+      url: LogoPaths.git,
+      techName: "Git",
+    },
+    {
+      url: LogoPaths.rxjs,
+      techName: "RXJS",
+    },
+    {
+      url: LogoPaths.material,
       techName: "Material UI",
+    },
+    {
+      url: LogoPaths.sql,
+      techName: "SQL",
     },
   ].map((tech) => (
     <div className="tech">
