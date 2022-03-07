@@ -1,3 +1,6 @@
+// $image-size: 28px;
+$image-size: 28px;
+
 .technical-projects {
   position: relative;
   display: grid;
@@ -39,11 +42,64 @@
       font-weight: 500;
       border-radius: 3px;
 
-      .tech-image {
-        width: auto;
-        height: 28px;
-        margin-right: 10px;
+      .image-container {
+        display: flex;
+        justify-content: center;
+
+        width: 40px;
+
+        .tech-image {
+          width: auto;
+          // height: 28px;
+          height: $image-size;
+          margin-right: 10px;
+        }
+        .JavaScript-img {
+          height: $image-size * 1.2;
+        }
+
+        .Canvas-img {
+          height: $image-size * 1.2;
+        }
+
+        .SCSS-img {
+          height: $image-size * 1.5;
+          margin-left: -3px;
+        }
+
+        .CSS-img {
+          height: $image-size * 1.2;
+        }
+
+        .GSAP-img {
+          height: $image-size * 1.2;
+        }
+
+        .Firebase-img {
+          height: $image-size * 1.5;
+        }
+
+        .D3js-img {
+          height: $image-size * 1.2;
+        }
+
+        .MaterialUI-img {
+          height: $image-size * 1.2;
+        }
+
+        .Git-img {
+          height: $image-size * 1.1;
+        }
+
+        .RXJS-img {
+          height: $image-size * 1.1;
+        }
+
+        .SQL-img {
+          height: $image-size * 1.1;
+        }
       }
+
       .tech-name {
         width: max-content;
         font-size: 1.8rem;

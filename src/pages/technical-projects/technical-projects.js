@@ -1,6 +1,5 @@
 import "./technical-projects.scss";
 import LogoPaths from "../../utils/logo-directories";
-import angular from "../../images/tech-logos/angular.png";
 
 function TechnicalProjects() {
   const techList = [
@@ -33,8 +32,8 @@ function TechnicalProjects() {
       techName: "Canvas",
     },
     {
-      url: LogoPaths.gsap,
-      techName: "GSAP",
+      url: LogoPaths.rxjs,
+      techName: "RXJS",
     },
     {
       url: LogoPaths.d3,
@@ -49,8 +48,8 @@ function TechnicalProjects() {
       techName: "Git",
     },
     {
-      url: LogoPaths.rxjs,
-      techName: "RXJS",
+      url: LogoPaths.gsap,
+      techName: "GSAP",
     },
     {
       url: LogoPaths.material,
@@ -60,12 +59,19 @@ function TechnicalProjects() {
       url: LogoPaths.sql,
       techName: "SQL",
     },
-  ].map((tech) => (
-    <div className="tech">
-      <img src={tech.url} className="tech-image"></img>
-      <div className="tech-name">{tech.techName}</div>
-    </div>
-  ));
+  ].map((tech) => {
+    const regex = /\s|\./gi;
+    const className = "tech-image " + tech.techName.replace(regex, "") + "-img";
+
+    return (
+      <div key={tech.techName} className="tech">
+        <div className="image-container">
+          <img className={className} src={tech.url}></img>
+        </div>
+        <div className="tech-name">{tech.techName}</div>
+      </div>
+    );
+  });
 
   return (
     <section id="tech-projects" className="technical-projects">

@@ -14,35 +14,11 @@ let prevTime = 0;
 const colors = ["#FFB8B8", "#fcd0a9", "#bde0fe", "#a2d2ff"];
 // const colors = ["#051100"];
 
-class Particle {
-  constructor(x, y, velocity, radius, context, id, color) {
-    this.id = id;
-    this.x = x;
-    this.y = y;
-    this.velocity = velocity;
-    this.radius = radius;
-    this.context = context;
-    this.color = color;
-  }
-
-  draw() {
-    this.context.beginPath();
-    this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    this.context.fillStyle = this.color;
-    this.context.fill();
-    this.context.closePath();
-  }
-
-  update() {
-    this.x += this.velocity.x;
-    this.y += this.velocity.y;
-    this.draw();
-  }
-}
-
 function HeroCanvas(props) {
   const [particles, setParticles] = useState([]);
-  const [particleId, setParticleId] = useState(0);
+  const [particleId, setParticleId] = useState(1);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeCircle, setActiveCircle] = useState();
   const canvasRef = useRef(null);
   // We can use contextRef's property contextRef.current to store state outside of a component.
   const contextRef = useRef();
@@ -63,7 +39,7 @@ function HeroCanvas(props) {
 
       if (time - prevTime >= spawnFrequency) {
         prevTime = time;
-        spawnParticles(1);
+        spawnParticle();
       }
 
       time = timestamp;
@@ -78,45 +54,30 @@ function HeroCanvas(props) {
     };
   }, [particles]);
 
-  const spawnParticles = (
-    nrOfParticles,
+  const spawnParticle = (
+    id = particleId,
     x = -300,
     y,
     itemRadius,
     color = colors[Math.floor(colors.length * Math.random())]
   ) => {
-    let latestParticleId = particleId,
-      activeParticles = [],
-      newParticles = [];
+    let currentParticles = [];
 
-    for (let i = 0; i < nrOfParticles; i++) {
-      latestParticleId++;
-      itemRadius = itemRadius ? itemRadius : upperItemRadiusRatio * Math.random() + lowertItemRadius;
-      y = y ? y : (window.innerHeight - itemRadius) * Math.random() + itemRadius;
+    itemRadius = itemRadius ? itemRadius : upperItemRadiusRatio * Math.random() + lowertItemRadius;
+    y = y ? y : (window.innerHeight - itemRadius) * Math.random() + itemRadius;
 
-      const newParticle = new Particle(x, y, particleVelocity, itemRadius, contextRef.current, latestParticleId, color);
-      newParticles.push(newParticle);
-    }
+    const newParticle = new Particle(id, x, y, particleVelocity, itemRadius, contextRef.current, color);
 
-    setParticleId(latestParticleId);
-
+    setParticleId((prevParticleId) => prevParticleId + 1);
     setParticles((prev) => {
       const cleanedUpParticles = prev.filter((particle) => {
         return particle.x < window.innerWidth + 500;
       });
-
-      activeParticles = [...cleanedUpParticles, ...newParticles];
-
-      // Force pink particle to be present
-      let pinkParticleIsPresent = activeParticles.some((particle) => particle.color === "#FFB8B8");
-      if (!pinkParticleIsPresent) {
-        activeParticles[activeParticles.length - 1].color = "#FFB8B8";
-      }
-
-      return activeParticles;
+      currentParticles = [...cleanedUpParticles, newParticle];
+      return currentParticles;
     });
 
-    return activeParticles;
+    return currentParticles;
   };
 
   const init = () => {
@@ -131,35 +92,85 @@ function HeroCanvas(props) {
 
     const h2 = props.greetingNameRef.current;
     const offSetTop = h2.offsetTop;
-
-    // Initial Spawn
     contextRef.current = context;
-    let count = 0;
+
+    //Initial Spawn
+    let count = 1;
     for (let i = -(windowWidth / nrOfSpawns) * 1.3; i < windowWidth; i += windowWidth / nrOfSpawns) {
       switch (count) {
         case 1:
-          spawnParticles(1, i, null, upperItemRadiusRatio * 0.5);
+          spawnParticle(count, i);
           break;
         case 2:
-          spawnParticles(1, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
+          spawnParticle(count, i, null, upperItemRadiusRatio * 0.5);
           break;
         case 3:
-          spawnParticles(1, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
+          spawnParticle(count, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
           break;
         case 4:
-          spawnParticles(1, i, null, null, colors[1]);
+          spawnParticle(count, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
+          break;
+        case 5:
+          spawnParticle(count, i, null, null, colors[1]);
           break;
         default:
-          spawnParticles(1, i);
+          spawnParticle(count, i);
           break;
       }
       count++;
     }
   };
 
+  const onMouseMove = (event) => {
+    setMousePosition({ x: event.pageX, y: event.pageY });
+    particleInteraction();
+  };
+
+  const particleInteraction = () => {
+    particles.forEach((particle) => {
+      const isWithinXValues =
+        mousePosition.x >= particle.x - particle.radius && mousePosition.x <= particle.x + particle.radius;
+      const isWithinYValues =
+        mousePosition.y >= particle.y - particle.radius && mousePosition.y <= particle.y + particle.radius;
+
+      if (isWithinXValues && isWithinYValues) {
+        setActiveCircle(particle);
+      } else {
+        setActiveCircle(null);
+      }
+    });
+  };
+
+  class Particle {
+    constructor(id, x, y, velocity, radius, context, color) {
+      this.id = id;
+      this.x = x;
+      this.y = y;
+      this.velocity = velocity;
+      this.radius = radius;
+      this.context = context;
+      this.color = color;
+    }
+
+    draw() {
+      this.context.beginPath();
+      this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+      this.context.fillStyle = this.color;
+      this.context.fill();
+      this.context.closePath();
+    }
+
+    update() {
+      this.x += this.velocity.x;
+      this.y += this.velocity.y;
+      this.draw();
+    }
+  }
+
   return (
     <div>
-      <canvas ref={canvasRef}></canvas>
+      <div className="test">{"Mouse X: " + mousePosition.x + " Mouse Y:" + mousePosition.y}</div>
+      <canvas onMouseMove={onMouseMove} ref={canvasRef}></canvas>
     </div>
   );
 }
