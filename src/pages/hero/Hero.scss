@@ -1,4 +1,4 @@
-.page_container {
+.hero-page-container {
   height: 100vh;
   width: 100%;
   display: grid;
@@ -7,7 +7,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.greeting_container {
+.greeting-container {
   z-index: 10;
   grid-row: 2/-1;
   grid-column: 2/14;
@@ -18,10 +18,11 @@
   font-size: clamp(22px, 1.8vw, 1.8vw);
   font-weight: 200;
   margin-left: 4px;
+  margin-bottom: 0px;
 }
 
-.greeting_name {
-  font-size: clamp(71px, 6.2vw, 7vw);
+.greeting-name {
+  font-size: clamp(50px, 5vw, 7vw);
   font-weight: 800;
   margin-bottom: 2px;
 
@@ -30,7 +31,7 @@
   }
 }
 
-.greeting_paragraph {
+.greeting-paragraph {
   font-size: clamp(23px, 2.1vw, 2.1vw);
   font-weight: 300;
   margin-left: 4px;
@@ -44,14 +45,6 @@
 @media screen and (max-width: 630px) {
   .second_paragraph {
     display: inline;
-  }
-
-  .greeting_paragraph {
-    font-size: 24px;
-  }
-
-  .greeting_name {
-    font-size: 50px;
   }
 }
 

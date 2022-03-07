@@ -75,7 +75,7 @@ function TechnicalProjects() {
 
   return (
     <section id="tech-projects" className="technical-projects">
-      <div className="page-container">
+      <div className="technical-proj-container">
         <div className="upper-left">
           <h2>Technologies</h2>
           <p>
@@ -98,7 +98,7 @@ function TechnicalProjects() {
           <div className="project-holder holder-left">
             <div className="project">
               <div className="project-title">
-                <h3>Hyperion</h3>
+                <h3>Paladium</h3>
                 <span>Analytics</span>
               </div>
               <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
@@ -109,24 +109,24 @@ function TechnicalProjects() {
                 <h3>Hyperion</h3>
                 <span>Analytics</span>
               </div>
-              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+              <p>Quality Assurance management service. Ticket tracking, coordination and monitoring.</p>
             </div>
           </div>
 
           <div className="project-holder holder-right">
             <div className="project">
               <div className="project-title">
-                <h3>Hyperion</h3>
-                <span>Analytics</span>
+                <h3>Logger</h3>
+                <span>Bug Tracking</span>
               </div>
               <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
             </div>
             <div className="project">
               <div className="project-title">
-                <h3>Hyperion</h3>
-                <span>Analytics</span>
+                <h3>Intranet</h3>
+                <span>Business</span>
               </div>
-              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+              <p>Intranet solution for the Enad Global 7 group. Serving news, documentation, articles and more.</p>
             </div>
           </div>
         </div>
