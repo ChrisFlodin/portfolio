@@ -168,10 +168,9 @@ function HeroCanvas(props) {
   }
 
   return (
-    <div>
-      <div className="test">{"Mouse X: " + mousePosition.x + " Mouse Y:" + mousePosition.y}</div>
+    <>
       <canvas onMouseMove={onMouseMove} ref={canvasRef}></canvas>
-    </div>
+    </>
   );
 }
 
