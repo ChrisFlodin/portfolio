@@ -1,22 +1,21 @@
-// $image-size: 28px;
 $image-size: 28px;
 
 .technical-projects {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(120px, 13vw, 250px) repeat(12, 1fr) clamp(120px, 13vw, 250px);
-  // grid-template-columns: clamp(50px, 0px, 20vw) repeat(12, 1fr) clamp(50px, 0px, 20vw);
-  grid-template-rows: 14vh 1fr 5vh;
+  grid-template-columns: 1fr minmax(1100px, 1030px) 1fr;
+  grid-template-rows: 20vh 1fr 20vh;
+  overflow: hidden;
 }
 
 .technical-proj-container {
   display: grid;
   grid-template-rows: 290px 7vh max-content;
-  grid-template-columns: 375px minmax(80px, 1fr) 64%;
+  grid-template-columns: 375px minmax(70px, 1fr) 1fr;
   border-radius: 3px;
 
   grid-row: 2 / 3;
-  grid-column: 2 / 14;
+  grid-column: 2 / 3;
 
   .upper-left {
     grid-row: 1 / 2;
@@ -160,15 +159,34 @@ $image-size: 28px;
 .technical-projects::after {
   display: block;
   position: absolute;
-  top: 9%;
-  left: -4%;
-  width: 34vw;
-  height: 34vw;
+  top: 4%;
+  left: 5vw;
+  width: 36vw;
+  height: 36vw;
   content: "";
   clip-path: circle();
   z-index: -1;
   background-color: #fcd0a9;
-  transform: translate(10vw, 1vw);
+}
+
+@media screen and (min-width: 1920px) {
+  .technical-projects {
+    grid-template-columns: 1fr minmax(1300px, 1030px) 1fr;
+
+    .technical-proj-container {
+      grid-template-columns: 375px minmax(90px, 100px) 1fr;
+    }
+  }
+
+  .technical-projects::after {
+    transform: translateX(5vw);
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  .technical-projects::after {
+    transform: translate(5vw, -5vh);
+  }
 }
 
 // Circle bottom
@@ -206,7 +224,8 @@ $image-size: 28px;
       .upper-left,
       .upper-right,
       .down-left,
-      .down-right {
+      .down-right,
+      .divider {
         grid-row: span 1;
         grid-column: span 4;
       }
@@ -225,9 +244,45 @@ $image-size: 28px;
       .down-right {
         margin: 20px 0px 0px 0px;
       }
+
+      .divider {
+        margin-top: 30px;
+      }
     }
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 800px) {
+  .technical-projects {
+    position: relative;
+    display: grid;
+    grid-template-columns: 15px repeat(12, 1fr) 15px;
+    grid-template-rows: 2vh 1fr 2vh;
+
+    .upper-right {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr) min-content;
+      grid-template-rows: repeat(6, 60px);
+      margin-top: -10px;
+      grid-column: 3 / 4;
+    }
+
+    .project-title {
+      span {
+        display: none;
+      }
+    }
+
+    .down-right {
+      flex-direction: column;
+      height: min-content;
+      .project-holder {
+        width: 100%;
+      }
+
+      .holder-right {
+        margin: 10px 0px;
+      }
+    }
+  }
 }
