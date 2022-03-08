@@ -89,8 +89,8 @@ function TechnicalProjects() {
         <div className="down-left">
           <h2>Projects</h2>
           <p>
-            These are the programming languages, frameworks and tools I know and love. Most of these I’ve used
-            extensively, some less frequently.
+            Projects I have worked on as a software engineer, generally in smaller tight-knight teams with agile
+            development methods.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ function TechnicalProjects() {
                 <h3>Intranet</h3>
                 <span>Business</span>
               </div>
-              <p>Intranet solution for the Enad Global 7 group. Serving news, documentation, articles and more.</p>
+              <p>Intranet solution for the EG7 group. Serving news, documentation and more.</p>
             </div>
           </div>
         </div>

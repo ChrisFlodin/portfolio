@@ -1,4 +1,7 @@
 .loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -9,4 +12,27 @@
   background-color: rgb(255, 255, 255);
   z-index: 100;
   overflow: hidden;
+}
+
+.center-circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #ffb8b8;
+  animation: blink 4s linear infinite;
+}
+
+@keyframes blink {
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
