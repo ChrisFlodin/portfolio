@@ -10,20 +10,16 @@ let upperItemRadiusRatio;
 let time = 0;
 let prevTime = 0;
 
-//#1 Chris (not expanded)
 const colors = ['#FFB8B8', '#fcd0a9', '#bde0fe', '#a2d2ff'];
-// const colors = ["#051100"];
 
 function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
   const [particles, setParticles] = useState([]);
-  const [particleId, setParticleId] = useState(1);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeCircle, setActiveCircle] = useState();
+  const particleId = useRef(0);
   const canvasRef = useRef(null);
-  // We can use contextRef's property contextRef.current to store state outside of a component.
   const contextRef = useRef();
+  const spawnParticle = useRef(null);
+  const init = useRef(null);
 
-  // We can use non-state variables, but remember that updating these will not trigger a re-render! Which is positive in this case.
   let animationFrameId;
 
   useEffect(() => {
@@ -31,14 +27,13 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
   }, [cleanClicked]);
 
   useEffect(() => {
-    spawnParticle(particleId, window.innerWidth * Math.random());
-    spawnParticle(particleId, window.innerWidth * Math.random());
-    spawnParticle(particleId, window.innerWidth * Math.random());
+    spawnParticle.current(particleId, window.innerWidth * Math.random());
+    spawnParticle.current(particleId, window.innerWidth * Math.random());
+    spawnParticle.current(particleId, window.innerWidth * Math.random());
   }, [paintClicked]);
 
   useEffect(() => {
-    init();
-    setTimeout(() => {}, 4000);
+    init.current();
   }, []);
 
   useEffect(() => {
@@ -50,7 +45,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
       if (time - prevTime >= spawnFrequency) {
         prevTime = time;
-        spawnParticle();
+        spawnParticle.current();
       }
 
       time = timestamp;
@@ -59,14 +54,13 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
     animate();
 
-    // For UseEffect, we can clean things up on unmount by using the return statement.
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [particles]);
 
-  const spawnParticle = (
-    id = particleId,
+  spawnParticle.current = (
+    id = particleId.current,
     x = -300,
     y,
     itemRadius,
@@ -79,7 +73,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
     const newParticle = new Particle(id, x, y, particleVelocity, itemRadius, contextRef.current, color);
 
-    setParticleId((prevParticleId) => prevParticleId + 1);
+    particleId.current = +1;
     setParticles((prev) => {
       const cleanedUpParticles = prev.filter((particle) => {
         return particle.x < window.innerWidth + 500;
@@ -91,7 +85,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
     return currentParticles;
   };
 
-  const init = () => {
+  init.current = () => {
     setParticles([]);
     windowWidth = document.documentElement.clientWidth;
     upperItemRadiusRatio = windowWidth / 14;
@@ -110,46 +104,26 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
     for (let i = -(windowWidth / nrOfSpawns) * 1.3; i < windowWidth; i += windowWidth / nrOfSpawns) {
       switch (count) {
         case 1:
-          spawnParticle(count, i);
+          spawnParticle.current(count, i);
           break;
         case 2:
-          spawnParticle(count, i, null, upperItemRadiusRatio * 0.5);
+          spawnParticle.current(count, i, null, upperItemRadiusRatio * 0.5);
           break;
         case 3:
-          spawnParticle(count, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
+          spawnParticle.current(count, i + 50, offSetTop * 1.1, upperItemRadiusRatio * 1.5, colors[0]);
           break;
         case 4:
-          spawnParticle(count, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
+          spawnParticle.current(count, i, offSetTop * 1.65, upperItemRadiusRatio * 0.5, colors[2]);
           break;
         case 5:
-          spawnParticle(count, i, null, null, colors[1]);
+          spawnParticle.current(count, i, null, null, colors[1]);
           break;
         default:
-          spawnParticle(count, i);
+          spawnParticle.current(count, i);
           break;
       }
       count++;
     }
-  };
-
-  const onMouseMove = (event) => {
-    setMousePosition({ x: event.pageX, y: event.pageY });
-    particleInteraction();
-  };
-
-  const particleInteraction = () => {
-    particles.forEach((particle) => {
-      const isWithinXValues =
-        mousePosition.x >= particle.x - particle.radius && mousePosition.x <= particle.x + particle.radius;
-      const isWithinYValues =
-        mousePosition.y >= particle.y - particle.radius && mousePosition.y <= particle.y + particle.radius;
-
-      if (isWithinXValues && isWithinYValues) {
-        setActiveCircle(particle);
-      } else {
-        setActiveCircle(null);
-      }
-    });
   };
 
   class Particle {
@@ -180,7 +154,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
   return (
     <>
-      <canvas onMouseMove={onMouseMove} ref={canvasRef}></canvas>
+      <canvas ref={canvasRef}></canvas>
     </>
   );
 }

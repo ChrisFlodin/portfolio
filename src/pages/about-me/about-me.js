@@ -1,25 +1,25 @@
-import "./about-me.scss";
+import './about-me.scss';
 
 function AboutMe() {
   const Interests = () => {
     const intList = [
-      "Rock Climber",
-      "Videographer",
-      "Choir Singer",
-      "Exercise Enthusiast",
-      "D&D Nerd",
-      "Enjoys Outdoors",
-      "Agile Champion",
-      "Photographer",
-      "Coffee Lover",
-      "Stockholmer",
-      "Striving to Meditate Consistently",
-      "Web Developer",
-      "Product Manager",
+      'Rock Climber',
+      'Videographer',
+      'Choir Singer',
+      'Exercise Enthusiast',
+      'D&D Nerd',
+      'Enjoys Outdoors',
+      'Agile Champion',
+      'Photographer',
+      'Coffee Lover',
+      'Stockholmer',
+      'Striving to Meditate Consistently',
+      'Web Developer',
+      'Product Manager',
     ].map((interest, i, arr) => {
       return (
-        <span key={interest} style={{ color: i % 2 == 0 ? "#fcd0a9" : "white" }} className="interest-text">
-          {interest} {i === arr.length - 1 ? "" : <span className="pipe">| </span>}
+        <span key={interest} style={{ color: i % 2 === 0 ? '#fcd0a9' : 'white' }} className="interest-text">
+          {interest} {i === arr.length - 1 ? '' : <span className="pipe">| </span>}
         </span>
       );
     });
@@ -29,7 +29,7 @@ function AboutMe() {
   return (
     <section className="about-me">
       <div className="profile-container">
-        <img src={require("../../images/chris_profile.png")} alt="" />
+        <img src={require('../../images/chris_profile.png')} alt="" />
         <div className="text-container">
           {<Interests />}
           <div className="reach-out">

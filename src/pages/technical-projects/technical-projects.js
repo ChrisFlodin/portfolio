@@ -1,72 +1,72 @@
-import "./technical-projects.scss";
-import LogoPaths from "../../utils/logo-directories";
+import './technical-projects.scss';
+import LogoPaths from '../../utils/logo-directories';
 
 function TechnicalProjects() {
   const techList = [
     {
       url: LogoPaths.js,
-      techName: "JavaScript",
+      techName: 'JavaScript',
     },
     {
       url: LogoPaths.react,
-      techName: "React",
+      techName: 'React',
     },
     {
       url: LogoPaths.angular,
-      techName: "Angular 10",
+      techName: 'Angular 10',
     },
     {
       url: LogoPaths.html,
-      techName: "HTML",
+      techName: 'HTML',
     },
     {
       url: LogoPaths.css,
-      techName: "CSS",
+      techName: 'CSS',
     },
     {
       url: LogoPaths.scss,
-      techName: "SCSS",
+      techName: 'SCSS',
     },
     {
       url: LogoPaths.js,
-      techName: "Canvas",
+      techName: 'Canvas',
     },
     {
       url: LogoPaths.rxjs,
-      techName: "RXJS",
+      techName: 'RXJS',
     },
     {
       url: LogoPaths.d3,
-      techName: "D3.js",
+      techName: 'D3.js',
     },
     {
       url: LogoPaths.firebase,
-      techName: "Firebase",
+      techName: 'Firebase',
     },
     {
       url: LogoPaths.git,
-      techName: "Git",
+      techName: 'Git',
     },
     {
       url: LogoPaths.gsap,
-      techName: "GSAP",
+      techName: 'GSAP',
     },
     {
       url: LogoPaths.material,
-      techName: "Material UI",
+      techName: 'Material UI',
     },
     {
       url: LogoPaths.sql,
-      techName: "SQL",
+      techName: 'SQL',
     },
   ].map((tech) => {
     const regex = /\s|\./gi;
-    const className = "tech-image " + tech.techName.replace(regex, "") + "-img";
+    const className = 'tech-image ' + tech.techName.replace(regex, '') + '-img';
 
     return (
       <div key={tech.techName} className="tech">
         <div className="image-container">
-          <img className={className} src={tech.url}></img>
+          <img alt="Christopher Flodin" className={className} src={tech.url}></img>
         </div>
         <div className="tech-name">{tech.techName}</div>
       </div>
