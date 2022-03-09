@@ -19,8 +19,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
   const contextRef = useRef();
   const spawnParticle = useRef(null);
   const init = useRef(null);
-
-  let animationFrameId;
+  const animationFrameId = useRef();
 
   useEffect(() => {
     setParticles([]);
@@ -49,13 +48,13 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
       }
 
       time = timestamp;
-      animationFrameId = requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animationFrameId.current);
     };
   }, [particles]);
 
