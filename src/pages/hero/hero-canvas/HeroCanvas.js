@@ -14,7 +14,7 @@ let prevTime = 0;
 const colors = ['#FFB8B8', '#fcd0a9', '#bde0fe', '#a2d2ff'];
 // const colors = ["#051100"];
 
-function HeroCanvas(props) {
+function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
   const [particles, setParticles] = useState([]);
   const [particleId, setParticleId] = useState(1);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -27,7 +27,18 @@ function HeroCanvas(props) {
   let animationFrameId;
 
   useEffect(() => {
+    setParticles([]);
+  }, [cleanClicked]);
+
+  useEffect(() => {
+    spawnParticle(particleId, window.innerWidth * Math.random());
+    spawnParticle(particleId, window.innerWidth * Math.random());
+    spawnParticle(particleId, window.innerWidth * Math.random());
+  }, [paintClicked]);
+
+  useEffect(() => {
     init();
+    setTimeout(() => {}, 4000);
   }, []);
 
   useEffect(() => {
@@ -90,7 +101,7 @@ function HeroCanvas(props) {
 
     const context = canvas.getContext('2d');
 
-    const h2 = props.greetingNameRef.current;
+    const h2 = greetingNameRef.current;
     const offSetTop = h2.offsetTop;
     contextRef.current = context;
 
