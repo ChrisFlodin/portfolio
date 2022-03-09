@@ -125,6 +125,14 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
     }
   };
 
+  useEffect(() => {
+    const onWindowResize = () => {
+      init.current();
+    };
+
+    window.addEventListener('resize', onWindowResize);
+  }, []);
+
   class Particle {
     constructor(id, x, y, velocity, radius, context, color) {
       this.id = id;
