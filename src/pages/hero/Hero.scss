@@ -14,28 +14,6 @@
   pointer-events: none;
 }
 
-.btn-container {
-  position: absolute;
-  top: 0.8vw;
-  right: 0.8vw;
-
-  button {
-    background-color: transparent;
-    color: rgba(0, 0, 0, 0.6);
-    font-weight: 400;
-    padding: 0.6rem 1.8rem;
-    pointer-events: auto;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 2rem;
-    border-radius: 3px;
-    cursor: pointer;
-
-    &:last-child {
-      margin-left: 1rem;
-    }
-  }
-}
-
 .greeting {
   font-size: clamp(22px, 1.3vw, 1.8vw);
   font-weight: 200;
@@ -62,6 +40,28 @@
 
 .second_paragraph {
   display: block;
+}
+
+.btn-container {
+  grid-template-columns: 2 / 3;
+  margin-top: 1.5rem;
+  margin-left: 5px;
+
+  button {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 400;
+    padding: 0.6rem 1.8rem;
+    pointer-events: auto;
+    border: 1px solid rgba(0, 0, 0, 1);
+    font-size: 2.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-left: 1rem;
+    }
+  }
 }
 
 @media screen and (max-width: 630px) {

@@ -50,8 +50,12 @@ function Hero(props) {
           <span className="second_paragraph">Formerly Head of Product at Digiexam</span>
         </p>
         <div className="btn-container">
-          <button onClick={onPaint}>Paint</button>
-          <button onClick={onClean}>Clean</button>
+          <button className="pink" onClick={onPaint}>
+            Paint
+          </button>
+          <button className="blue" onClick={onClean}>
+            Clean
+          </button>
         </div>
       </div>
     </div>
