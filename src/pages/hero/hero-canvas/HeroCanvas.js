@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import "./HeroCanvas.scss";
+import { useEffect, useRef, useState } from 'react';
+import './HeroCanvas.scss';
 
 const particleVelocity = { x: 0.1, y: 0 },
   nrOfSpawns = 6,
@@ -11,7 +11,7 @@ let time = 0;
 let prevTime = 0;
 
 //#1 Chris (not expanded)
-const colors = ["#FFB8B8", "#fcd0a9", "#bde0fe", "#a2d2ff"];
+const colors = ['#FFB8B8', '#fcd0a9', '#bde0fe', '#a2d2ff'];
 // const colors = ["#051100"];
 
 function HeroCanvas(props) {
@@ -88,7 +88,7 @@ function HeroCanvas(props) {
     canvas.width = windowWidth;
     canvas.height = window.innerHeight;
 
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
 
     const h2 = props.greetingNameRef.current;
     const offSetTop = h2.offsetTop;

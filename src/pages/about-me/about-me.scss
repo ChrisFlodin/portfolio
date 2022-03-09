@@ -82,6 +82,15 @@ $profile-container-side-padding: 20px;
 
     .profile-container {
       grid-template-columns: 375px minmax(90px, 100px) 1fr;
+      padding: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  .about-me {
+    .profile-container {
+      transform: scale(1.4);
     }
   }
 }
