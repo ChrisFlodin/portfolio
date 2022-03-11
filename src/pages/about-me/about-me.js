@@ -4,6 +4,7 @@ function AboutMe() {
   const Interests = () => {
     const intList = [
       'Rock Climber',
+      'Web Developer',
       'Videographer',
       'Choir Singer',
       'Exercise Enthusiast',
@@ -14,7 +15,6 @@ function AboutMe() {
       'Coffee Lover',
       'Stockholmer',
       'Striving to Meditate Consistently',
-      'Web Developer',
       'Product Manager',
     ].map((interest, i, arr) => {
       return (

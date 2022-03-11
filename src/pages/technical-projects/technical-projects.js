@@ -101,32 +101,40 @@ function TechnicalProjects() {
                 <h3>Paladium</h3>
                 <span>Analytics</span>
               </div>
-              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+              <p>
+                An analytics platform with all the dashboards, graphs and charts you would expect. Think mix panel for
+                video games.
+              </p>
             </div>
 
             <div className="project">
               <div className="project-title">
                 <h3>Hyperion</h3>
-                <span>Analytics</span>
+                <span>QA</span>
               </div>
-              <p>Quality Assurance management service. Ticket tracking, coordination and monitoring.</p>
+              <p>Quality Assurance management service providing ticket tracking, coordination, and monitoring.</p>
             </div>
           </div>
 
           <div className="project-holder holder-right">
             <div className="project">
               <div className="project-title">
-                <h3>Logger</h3>
-                <span>Bug Tracking</span>
+                <h3>Chronos</h3>
+                <span>Error Monitoring</span>
               </div>
-              <p>An analytics platform with dashboards, graphs and charts. Think mix panel for video games.</p>
+              <p>
+                Error monitoring software with data-sorting capabilities for tracking bugs in video game applications.
+              </p>
             </div>
             <div className="project">
               <div className="project-title">
                 <h3>Intranet</h3>
                 <span>Business</span>
               </div>
-              <p>Intranet solution for the EG7 group. Serving news, documentation and more.</p>
+              <p>
+                MVP intranet solution for the Enad Global 7 group. Serving news, knowledge articles, documentation and
+                more.
+              </p>
             </div>
           </div>
         </div>
