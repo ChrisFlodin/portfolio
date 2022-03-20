@@ -3,10 +3,16 @@ import HeroCanvas from './hero-canvas/HeroCanvas';
 import './Hero.scss';
 import { gsap } from 'gsap';
 
+const animationTime = 0.4;
+const animationHeadStart = 0.2;
+
 function Hero(props) {
   const greetingRef = useRef();
   const greetingNameRef = useRef();
   const greetingParagraphRef = useRef();
+  const imageRef = useRef();
+  const paintBtnRef = useRef();
+  const cleanBtnRef = useRef();
   const tl = useRef();
   const [paintClicked, setPaintClicked] = useState(false);
   const [cleanClicked, setCleanClicked] = useState(false);
@@ -17,9 +23,14 @@ function Hero(props) {
 
       // prettier-ignore
       tl.current
-      .from(greetingNameRef.current, {duration: 0.3, y: -10, opacity: 0})
-      .from(greetingParagraphRef.current, {duration: 0.5, y: -10, opacity: 0}, '-=0.2')
-      .from(greetingRef.current, { duration: 1, opacity: 0 }, '-=0.6');
+      .addLabel("start")
+        .from(greetingRef.current, { duration: animationTime, opacity: 0, y: -10 }, `=-${animationHeadStart}`)
+        .from(greetingNameRef.current, { duration: animationTime, y: -10, opacity: 0 }, `=-${animationHeadStart}`)
+        .from(greetingParagraphRef.current, { duration: animationTime, y: -10, opacity: 0 }, `=-${animationHeadStart}`)
+        .addLabel('buttons')
+        .from(paintBtnRef.current, { duration: animationTime, opacity: 0, y: -10 }, 'buttons -=0.3') 
+        .from(cleanBtnRef.current, { duration: animationTime, opacity: 0, y: -10 }, 'buttons -=0.3')
+        .from(imageRef.current, { duration: 1.2, opacity: 0, y: -50,  }, "start")
     }
   }, [props.isLoadingDone]);
 
@@ -43,6 +54,7 @@ function Hero(props) {
           Hi, I'm
         </h2>
         <h2 ref={greetingNameRef} className="greeting-name">
+          <img ref={imageRef} src={require('../../images/chris_profile.jpg')} alt="" />
           Christopher Flodin
         </h2>
         <p ref={greetingParagraphRef} className="greeting-paragraph">
@@ -50,10 +62,10 @@ function Hero(props) {
           <span className="second_paragraph">Formerly Head of Product at Digiexam</span>
         </p>
         <div className="btn-container">
-          <button className="pink" onClick={onPaint}>
+          <button ref={paintBtnRef} className="pink" onClick={onPaint}>
             Paint
           </button>
-          <button className="blue" onClick={onClean}>
+          <button ref={cleanBtnRef} className="blue" onClick={onClean}>
             Clean
           </button>
         </div>
