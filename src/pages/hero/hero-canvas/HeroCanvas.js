@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './HeroCanvas.scss';
 
 const particleVelocity = { x: 0.1, y: 0 },
-  nrOfSpawns = 6,
+  nrOfSpawns = 10,
   spawnFrequency = 60000,
   lowertItemRadius = 20;
 let windowWidth;
@@ -95,7 +95,9 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
     const context = canvas.getContext('2d');
 
     const h2 = greetingNameRef.current;
+    console.log(h2);
     const offSetTop = h2.offsetTop;
+    console.log(offSetTop);
     contextRef.current = context;
 
     //Initial Spawn
@@ -161,7 +163,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
   return (
     <>
-      <canvas ref={canvasRef}></canvas>
+      <canvas style={{ filter: 'blur(5px)' }} ref={canvasRef}></canvas>
     </>
   );
 }

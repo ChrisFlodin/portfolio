@@ -29,7 +29,7 @@ function AboutMe() {
   return (
     <section className="about-me">
       <div className="profile-container">
-        <img src={require('../../images/chris_profile.jpg')} alt="" />
+        <img src={require('../../images/chris_profile_2_square.jpg')} alt="Image of Christopher Flodin" />
         <div className="text-container">
           {<Interests />}
           <div className="reach-out">
