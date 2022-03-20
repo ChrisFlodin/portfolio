@@ -4,8 +4,8 @@ import LogoPaths from '../../utils/logo-directories';
 function TechnicalProjects() {
   const techList = [
     {
-      url: LogoPaths.js,
-      techName: 'JavaScript',
+      url: LogoPaths.typescript,
+      techName: 'TypeScript',
     },
     {
       url: LogoPaths.react,
@@ -16,8 +16,24 @@ function TechnicalProjects() {
       techName: 'Angular 10',
     },
     {
-      url: LogoPaths.html,
-      techName: 'HTML',
+      url: LogoPaths.git,
+      techName: 'Git',
+    },
+    {
+      url: LogoPaths.nodejs,
+      techName: 'Node.js',
+    },
+    {
+      url: LogoPaths.express,
+      techName: 'Express',
+    },
+    {
+      url: LogoPaths.mongodb,
+      techName: 'MongoDB',
+    },
+    {
+      url: LogoPaths.js,
+      techName: 'JavaScript',
     },
     {
       url: LogoPaths.css,
@@ -32,10 +48,6 @@ function TechnicalProjects() {
       techName: 'Canvas',
     },
     {
-      url: LogoPaths.rxjs,
-      techName: 'RXJS',
-    },
-    {
       url: LogoPaths.d3,
       techName: 'D3.js',
     },
@@ -44,20 +56,16 @@ function TechnicalProjects() {
       techName: 'Firebase',
     },
     {
-      url: LogoPaths.git,
-      techName: 'Git',
-    },
-    {
       url: LogoPaths.gsap,
       techName: 'GSAP',
     },
     {
-      url: LogoPaths.material,
-      techName: 'Material UI',
-    },
-    {
       url: LogoPaths.sql,
       techName: 'SQL',
+    },
+    {
+      url: LogoPaths.html,
+      techName: 'HTML',
     },
   ].map((tech) => {
     const regex = /\s|\./gi;
