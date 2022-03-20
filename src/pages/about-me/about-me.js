@@ -3,8 +3,9 @@ import './about-me.scss';
 function AboutMe() {
   const Interests = () => {
     const intList = [
-      'Rock Climber',
       'Web Developer',
+      'Rock Climber',
+      'Product Manager',
       'Videographer',
       'Choir Singer',
       'Exercise Enthusiast',
@@ -15,7 +16,6 @@ function AboutMe() {
       'Coffee Lover',
       'Stockholmer',
       'Striving to Meditate Consistently',
-      'Product Manager',
     ].map((interest, i, arr) => {
       return (
         <span key={interest} style={{ color: i % 2 === 0 ? '#fcd0a9' : 'white' }} className="interest-text">
@@ -29,7 +29,6 @@ function AboutMe() {
   return (
     <section className="about-me">
       <div className="profile-container">
-        <img src={require('../../images/chris_profile_2_square.jpg')} alt="" />
         <div className="text-container">
           {<Interests />}
           <div className="reach-out">
