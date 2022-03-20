@@ -30,7 +30,7 @@ function Hero(props) {
         .addLabel('buttons')
         .from(paintBtnRef.current, { duration: animationTime - 0.2, opacity: 0, y: -10 }, 'buttons -=0.3') 
         .from(cleanBtnRef.current, { duration: animationTime - 0.2, opacity: 0, y: -10 }, 'buttons -=0.3')
-        .from(imageRef.current, { duration: 1, opacity: 0, y: -30,  }, "start")
+        .from(imageRef.current, { duration: 1, opacity: 0, y: -30,  }, "start");
     }
   }, [props.isLoadingDone]);
 
