@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './HeroCanvas.scss';
 
 const particleVelocity = { x: 0.1, y: 0 },
-  nrOfSpawns = 10,
+  nrOfSpawns = 20,
   spawnFrequency = 60000,
   lowertItemRadius = 20;
 let windowWidth;
