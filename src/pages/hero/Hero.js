@@ -24,13 +24,13 @@ function Hero(props) {
       // prettier-ignore
       tl.current
       .addLabel("start")
-        .from(greetingRef.current, { duration: animationTime, opacity: 0, y: -10 }, `=-${animationHeadStart}`)
+        .from(greetingRef.current, { duration: animationTime, opacity: 0, y: -10 })
         .from(greetingNameRef.current, { duration: animationTime, y: -10, opacity: 0 }, `=-${animationHeadStart}`)
         .from(greetingParagraphRef.current, { duration: animationTime, y: -10, opacity: 0 }, `=-${animationHeadStart}`)
         .addLabel('buttons')
-        .from(paintBtnRef.current, { duration: animationTime, opacity: 0, y: -10 }, 'buttons -=0.3') 
-        .from(cleanBtnRef.current, { duration: animationTime, opacity: 0, y: -10 }, 'buttons -=0.3')
-        .from(imageRef.current, { duration: 1.2, opacity: 0, y: -30,  }, "start")
+        .from(paintBtnRef.current, { duration: animationTime - 0.2, opacity: 0, y: -10 }, 'buttons -=0.3') 
+        .from(cleanBtnRef.current, { duration: animationTime - 0.2, opacity: 0, y: -10 }, 'buttons -=0.3')
+        .from(imageRef.current, { duration: 1, opacity: 0, y: -30,  }, "start")
     }
   }, [props.isLoadingDone]);
 
