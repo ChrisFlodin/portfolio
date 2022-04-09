@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import './HeroCanvas.scss';
+import { useEffect, useRef, useState } from "react";
+import "./HeroCanvas.scss";
 
 const particleVelocity = { x: 0.1, y: 0 },
   nrOfSpawns = 20,
@@ -10,7 +10,7 @@ let upperItemRadiusRatio;
 let time = 0;
 let prevTime = 0;
 
-const colors = ['#FFB8B8', '#fcd0a9', '#bde0fe', '#a2d2ff'];
+const colors = ["#FFB8B8", "#fcd0a9", "#bde0fe", "#a2d2ff"];
 
 function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
   const [particles, setParticles] = useState([]);
@@ -92,12 +92,10 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
     canvas.width = windowWidth;
     canvas.height = window.innerHeight;
 
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext("2d");
 
     const h2 = greetingNameRef.current;
-    console.log(h2);
     const offSetTop = h2.offsetTop;
-    console.log(offSetTop);
     contextRef.current = context;
 
     //Initial Spawn
@@ -132,7 +130,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
       init.current();
     };
 
-    window.addEventListener('resize', onWindowResize);
+    window.addEventListener("resize", onWindowResize);
   }, []);
 
   class Particle {
@@ -163,7 +161,7 @@ function HeroCanvas({ greetingNameRef, paintClicked, cleanClicked }) {
 
   return (
     <>
-      <canvas style={{ filter: 'blur(5px)' }} ref={canvasRef}></canvas>
+      <canvas style={{ filter: "blur(5px)" }} ref={canvasRef}></canvas>
     </>
   );
 }

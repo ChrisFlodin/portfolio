@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from 'react';
-import HeroCanvas from './hero-canvas/HeroCanvas';
-import './Hero.scss';
-import { gsap } from 'gsap';
+import { useRef, useEffect, useState } from "react";
+import HeroCanvas from "./hero-canvas/HeroCanvas";
+import "./Hero.scss";
+import { gsap } from "gsap";
 
 const animationTime = 0.4;
 const animationHeadStart = 0.2;
@@ -54,12 +54,12 @@ function Hero(props) {
           Hi, I'm
         </h2>
         <h2 ref={greetingNameRef} className="greeting-name">
-          <img ref={imageRef} src={require('../../images/chris_profile.jpg')} alt="" />
+          <img ref={imageRef} src={require("../../images/chris_profile.jpg")} alt="" />
           Christopher Flodin
         </h2>
         <p ref={greetingParagraphRef} className="greeting-paragraph">
-          I build software for big and small companies{' '}
-          <span className="second_paragraph">Formerly Head of Product at Digiexam</span>
+          I build software for big and small companies{" "}
+          <span className="second_paragraph">Currently Product Manager @Albacross</span>
         </p>
         <div className="btn-container">
           <button ref={paintBtnRef} className="pink" onClick={onPaint}>

@@ -58,7 +58,7 @@ $img-width: $img-height * 0.84633;
   }
 
   &::after {
-    content: '.';
+    content: ".";
   }
 }
 
@@ -76,7 +76,7 @@ $img-width: $img-height * 0.84633;
 .btn-container {
   grid-template-columns: 2 / 3;
   margin-top: 1.5rem;
-  margin-left: 5px;
+  margin-left: 4px;
 
   button {
     background-color: transparent;
@@ -85,7 +85,7 @@ $img-width: $img-height * 0.84633;
     pointer-events: auto;
     color: rgba(0, 0, 0, 1);
     border: 1px solid rgba(0, 0, 0, 1);
-    font-size: 2.7rem;
+    font-size: 2rem;
     border-radius: 3px;
     cursor: pointer;
     opacity: 1;
@@ -101,26 +101,7 @@ $img-width: $img-height * 0.84633;
   }
 }
 
-@media screen and (max-width: 630px) {
-  .second_paragraph {
-    display: inline;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .greeting-container {
-    $img-height: 30vw;
-    $img-width: $img-height * 0.84633;
-    img {
-      height: $img-height;
-      width: $img-width;
-      top: 0px;
-      right: -30vw;
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1040px) {
   .greeting-container {
     grid-column: 2 / 14;
 
