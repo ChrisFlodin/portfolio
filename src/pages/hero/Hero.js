@@ -54,7 +54,7 @@ function Hero(props) {
           Hi, I'm
         </h2>
         <h2 ref={greetingNameRef} className="greeting-name">
-          <img ref={imageRef} src={require("../../images/chris_profile.jpg")} alt="" />
+          <img ref={imageRef} src={require("../../images/chris_profile.jpg")} alt=""/>
           Christopher Flodin
         </h2>
         <p ref={greetingParagraphRef} className="greeting-paragraph">

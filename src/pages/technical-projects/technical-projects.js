@@ -97,8 +97,8 @@ function TechnicalProjects() {
         <div className="down-left">
           <h2>Projects</h2>
           <p>
-            Projects I have worked on as a software engineer, generally in smaller tight-knight teams with agile
-            development methods.
+            Projects I have worked on as a software developer, generally in smaller tight-knight teams with agile
+           methodologies.
           </p>
         </div>
 
